@@ -1,0 +1,150 @@
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 20px;
+	color: #333;
+}
+
+.highlight {
+	background-color: yellow;
+}
+
+.highlightproduct {
+	background-color: orange;
+}
+
+#tableForm {
+	max-width: 600px;
+	margin: 20px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: space-between; /* Add spacing between elements */
+	align-items: center;
+	flex-wrap: wrap; /* Wrap items for smaller screens */
+}
+
+#tableForm > div {
+	flex: 1; /* Give each input wrapper equal space */
+	min-width: 120px; /* Minimum width for smaller screens */
+	margin: 5px; /* Add some space around inputs */
+}
+
+#tableForm input[type=number],
+#tableForm select {
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	width: 100%;
+	box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+#tableForm button {
+	padding: 10px 20px;
+	background-color: #5cb85c;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+#errorContainer {
+    color: red;
+    margin-top: 10px;
+}
+
+#result {
+  /* Padding and size */
+  padding: 10px;
+  width: 100%; /* This will make the output element stretch to the full width of its parent */
+  
+  /* Font styling */
+  font-size: 1.2em; /* Adjust font-size to suit your preference */
+  color: #333; /* Dark color for the text */
+  font-weight: bold; /* Makes the text bold */
+  font-family: 'Arial', sans-serif; /* Ensures a clean, readable font is used */
+  text-align: center; /* Centers the text within the output element */
+
+  /* Box styling */
+  background-color: #f9f9f9; /* Light grey background */
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 4px; /* Rounded corners */
+  
+  /* Box shadow for a slight depth effect (optional) */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* If you want to vertically center the output in a specific height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* Adjust height as needed */
+}
+
+/* If you want to add a specific style when the output is empty */
+#result:empty {
+  background-color: #fff; /* White or a lighter color when there is no result */
+  color: #bbb; /* Light grey color indicating the placeholder-like text */
+}
+
+#tableForm button:hover {
+	background-color: #4cae4c;
+}
+
+#error-message {
+	color: #d9534f;
+	margin-top: 10px;
+}
+
+#tableOutput {
+  margin: 20px auto;
+  overflow-x: auto; /* Allows horizontal scrolling if the table is too wide */
+  overflow-y: auto; /* Allows vertical scrolling if the table is too tall */
+  max-height: 500px; /* Set a maximum height for the table container */
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+th, td {
+	padding: 8px;
+	text-align: center;
+	border: 1px solid #ddd; /* Add borders to all cells */
+	transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+th {
+  background-color: #f2f2f2;
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Ensure the header stays above the scrolled content */
+}
+
+tbody th {
+  position: sticky;
+  left: 0;
+  background-color: #f9f9f9;
+  border-right: 1px solid #ddd;
+  z-index: 10; /* Ensure the row headers stay above the scrolled content */
+}
+
+thead th {
+	border-top: none;
+}
+
+
+tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+td:hover {
+	background-color: #eaeaea; /* Add hover effect for cells */
+  

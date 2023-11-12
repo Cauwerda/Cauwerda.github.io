@@ -1,56 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Pacific Trails Resort</title>
-    <meta charset="utf-8">
-    <link href="pacific.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--[if lt IE 9]>
-   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"> </script>   <![endif]-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplication Table Generator</title>
+<link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
-    <div id="wrapper">
-        <header>
-            <h1>Pacific Trails Resort</h1>
-        </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a>
-                </li>
-                <li><a href="yurts.html">Yurts</a>
-                </li>
-                <li><a href="activities.html">Activities</a>
-                </li>
-                <li><a href="reservations.html">Reservations</a>
-            </ul>
-        </nav>
-        <div id="content">
-            <h2>Enjoy Nature in Luxury</h2>
-            <img src="coast.jpg" alt="Pacific Coast">
-            <p><span class="resort">Pacific Trails Resort</span> offers a special lodging experience on the California North Coast. Relax in serenity with panoramic views of the Pacific Ocean.</p>
-            <ul>
-                <li>Private yurts with decks overlooking the ocean</li>
-                <li>Activities lodge with fireplace and gift shop</li>
-                <li>Nightly fine dining at the Overlook Cafe</li>
-                <li>Heated outdoor pool and whirlpool</li>
-                <li>Guided hiking tours of the redwoods</li>
-            </ul>
-            <div id="contact">
-                <span class="resort">Pacific Trails Resort</span>
-                <br> 12010 Pacific Trails Road
-                <br> Zephyr, CA 95555
-                <br>
-                <br> 888-555-5555
-                <br>
-                <br>
-            </div>
-        </div>
-        <footer>
-            Copyright &copy; 2014 Pacific Trails Resort
-            <br>
-            <a href="mailto:yourfirstname@yourlastname.com">yourfirstname@yourlastname.com</a>
-        </footer>
-    </div>
-</body>
+<div class="form-container">
+  <form id="tableForm">
+    <label for="multiplierStart">Multiplier Start:</label>
+    <input type="number" id="multiplierStart" name="multiplierStart" required>
+    
+    <label for="multiplierEnd">Multiplier End:</label>
+    <input type="number" id="multiplierEnd" name="multiplierEnd" required>
+    
+    <label for="multiplicandStart">Multiplicand Start:</label>
+    <input type="number" id="multiplicandStart" name="multiplicandStart" required>
+    
+    <label for="multiplicandEnd">Multiplicand End:</label>
+    <input type="number" id="multiplicandEnd" name="multiplicandEnd" required>
+    
+    <button type="submit">Generate Table</button>
+  </form>
+</div>
 
+
+<div class="form-container">
+  <form id="tableForm">
+	<label for="operand1">Operand 1:</label>
+	<input type="number" id="operand1" placeholder="Enter first operand">
+    
+    <label for="operand2">Operand 2:</label>
+	<input type="number" id="operand2" placeholder="Enter second operand">
+	
+	<label for="result">Result:</label>
+	<output type="number" id="result" placeholder="Product">
+	
+
+  </form>
+</div>
+<div id="errorContainer"></div>
+
+<div id="tableOutput"></div>
+
+<div id="error-message" style="color: red;"></div>
+
+<script src="Javascript/script.js"></script>
+</body>
 </html>
