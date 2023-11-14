@@ -1,3 +1,14 @@
+/*
+File: style.css
+GUI Assignment: HW3
+Charlie Auwerda
+charles_auwerda@student.uml.edu
+Copyright (c) 2023 by Charlie Auwerda. All rights reserved. May be freely copied or
+excerpted for educational purposes with credit to the author.
+updated by CA on November 11, 2023
+*/
+
+/* General Styling */
 body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	background-color: #f4f4f4;
@@ -6,6 +17,7 @@ body {
 	color: #333;
 }
 
+/* Highlight Styles */
 .highlight {
 	background-color: yellow;
 }
@@ -14,6 +26,7 @@ body {
 	background-color: orange;
 }
 
+/* Form Container Styling */
 #tableForm {
 	max-width: 600px;
 	margin: 20px auto;
@@ -22,15 +35,16 @@ body {
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	display: flex;
-	justify-content: space-between; /* Add spacing between elements */
+	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap; /* Wrap items for smaller screens */
+	flex-wrap: wrap;
 }
 
+/* Form Elements Styling */
 #tableForm > div {
-	flex: 1; /* Give each input wrapper equal space */
-	min-width: 120px; /* Minimum width for smaller screens */
-	margin: 5px; /* Add some space around inputs */
+	flex: 1;
+	min-width: 120px;
+	margin: 5px;
 }
 
 #tableForm input[type=number],
@@ -39,7 +53,7 @@ body {
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	width: 100%;
-	box-sizing: border-box; /* Ensure padding does not affect width */
+	box-sizing: border-box;
 }
 
 #tableForm button {
@@ -52,62 +66,56 @@ body {
 	transition: background-color 0.3s ease;
 }
 
+/* Error Message Styling */
 #errorContainer {
     color: red;
     margin-top: 10px;
 }
 
 #result {
-  /* Padding and size */
   padding: 10px;
-  width: 100%; /* This will make the output element stretch to the full width of its parent */
-  
-  /* Font styling */
-  font-size: 1.2em; /* Adjust font-size to suit your preference */
-  color: #333; /* Dark color for the text */
-  font-weight: bold; /* Makes the text bold */
-  font-family: 'Arial', sans-serif; /* Ensures a clean, readable font is used */
-  text-align: center; /* Centers the text within the output element */
-
-  /* Box styling */
-  background-color: #f9f9f9; /* Light grey background */
-  border: 1px solid #ddd; /* Subtle border */
-  border-radius: 4px; /* Rounded corners */
-  
-  /* Box shadow for a slight depth effect (optional) */
+  width: 100%;
+  font-size: 1.2em;
+  color: #333;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  /* If you want to vertically center the output in a specific height */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px; /* Adjust height as needed */
+  height: 50px;
 }
 
-/* If you want to add a specific style when the output is empty */
 #result:empty {
-  background-color: #fff; /* White or a lighter color when there is no result */
-  color: #bbb; /* Light grey color indicating the placeholder-like text */
+  background-color: #fff;
+  color: #bbb;
 }
 
 #tableForm button:hover {
 	background-color: #4cae4c;
 }
 
+/* Error Message Styling */
 #error-message {
 	color: #d9534f;
 	margin-top: 10px;
 }
 
+/* Table Container Styling */
 #tableOutput {
   margin: 20px auto;
-  overflow-x: auto; /* Allows horizontal scrolling if the table is too wide */
-  overflow-y: auto; /* Allows vertical scrolling if the table is too tall */
-  max-height: 500px; /* Set a maximum height for the table container */
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 500px;
   border: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Table Styling */
 table {
 	border-collapse: collapse;
 	width: 100%;
@@ -117,15 +125,15 @@ table {
 th, td {
 	padding: 8px;
 	text-align: center;
-	border: 1px solid #ddd; /* Add borders to all cells */
-	transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+	border: 1px solid #ddd;
+	transition: background-color 0.3s ease;
 }
 
 th {
   background-color: #f2f2f2;
   position: sticky;
   top: 0;
-  z-index: 10; /* Ensure the header stays above the scrolled content */
+  z-index: 10;
 }
 
 tbody th {
@@ -133,18 +141,17 @@ tbody th {
   left: 0;
   background-color: #f9f9f9;
   border-right: 1px solid #ddd;
-  z-index: 10; /* Ensure the row headers stay above the scrolled content */
+  z-index: 10;
 }
 
 thead th {
 	border-top: none;
 }
 
-
 tbody tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
 
 td:hover {
-	background-color: #eaeaea; /* Add hover effect for cells */
-  
+	background-color: #eaeaea;
+}
