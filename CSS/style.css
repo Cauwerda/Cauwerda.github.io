@@ -155,3 +155,17 @@ tbody tr:nth-child(even) {
 td:hover {
 	background-color: #eaeaea;
 }
+
+label.error {
+  color: red;
+  background: #ffd2d2;
+  border: 1px solid #ff0000;
+  padding: 4px;
+  margin-top: 2px;
+}
+
+input.error {
+  border: 1px solid #ff0000;
+  background-color: #ffe5e5;
+}
+

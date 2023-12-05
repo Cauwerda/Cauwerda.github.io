@@ -1,67 +1,71 @@
 /*
 File: script.js
-GUI Assignment: HW3
+GUI Assignment: HW4
 Charlie Auwerda
 charles_auwerda@student.uml.edu
 Copyright (c) 2023 by Charlie Auwerda. All rights reserved. May be freely copied or
 excerpted for educational purposes with credit to the author.
-updated by CA on November 11, 2023
+updated by CA on December 04, 2023
 */
 
-// Handle form submission for the multiplication table
-document.getElementById('tableForm').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission behavior
-
-  // Retrieve values from the form inputs
-  const multiplierStart = parseInt(document.getElementById('multiplierStart').value, 10);
-  const multiplierEnd = parseInt(document.getElementById('multiplierEnd').value, 10);
-  const multiplicandStart = parseInt(document.getElementById('multiplicandStart').value, 10);
-  const multiplicandEnd = parseInt(document.getElementById('multiplicandEnd').value, 10);
-  
-  // Validate inputs and generate table if inputs are valid
-  if (validateInputs(multiplierStart, multiplierEnd, multiplicandStart, multiplicandEnd)) {
-    generateTable(multiplierStart, multiplierEnd, multiplicandStart, multiplicandEnd);
-  }
-});
-
-// Event listeners for input fields and button in the simple multiplication calculation form
-document.getElementById('operand1').addEventListener('input', highlightOperands);
-document.getElementById('operand2').addEventListener('input', highlightOperands);
-document.getElementById('highlightBtn').addEventListener('click', highlightOperands);
-
-// Function to validate input values
-function validateInputs(mStart, mEnd, pStart, pEnd) {
-  const errorContainer = document.getElementById('error-message');
-  // Error handling if the error message container is not found
-  if (!errorContainer) {
-    console.error('Error container not found.');
-    return false;
-  }
-  
-  // Validation for input values
-  // Check if inputs are numbers
-  if (isNaN(mStart) || isNaN(mEnd) || isNaN(pStart) || isNaN(pEnd)) {
-    errorContainer.textContent = 'Please enter valid numbers.';
-    return false;
-  }
-
-  // Check if start values are less than or equal to end values
-  if (mStart > mEnd || pStart > pEnd) {
-    errorContainer.textContent = 'Start values must be less than or equal to end values.';
-    return false;
-  }
-
-  // Check for range limits
-  if (mStart < -50 || mEnd > 50 || pStart < -50 || pEnd > 50) {
-    errorContainer.textContent = 'Values must be between -50 and 50.';
-    return false;
-  }
-
-  // Clear any previous error messages
-  errorContainer.textContent = '';
-  return true;
-}
-
+$(document).ready(function() {
+    var showErrorMessages = false;  // Flag to control error message display
+    // jQuery Validation for the form
+    var validator = $('#tableForm').validate({
+        rules: {
+            multiplierStart: {
+                required: true,
+                number: true,
+                min: -50,
+                max: 50
+            },
+            multiplierEnd: {
+                required: true,
+                number: true,
+                min: -50,
+                max: 50
+            },
+            multiplicandStart: {
+                required: true,
+                number: true,
+                min: -50,
+                max: 50
+            },
+            multiplicandEnd: {
+                required: true,
+                number: true,
+                min: -50,
+                max: 50
+            }
+        },
+        messages: {
+            multiplierStart: {
+                required: "Please enter a starting multiplier",
+                number: "Please enter a valid number",
+                min: "Value must be between -50 and 50",
+                max: "Value must be between -50 and 50"
+            },
+        },
+                submitHandler: function(form) {
+            // Logic to handle the form submission
+            // This function is called only when the form is valid
+            const multiplierStart = parseInt($('#multiplierStart').val(), 10);
+            const multiplierEnd = parseInt($('#multiplierEnd').val(), 10);
+            const multiplicandStart = parseInt($('#multiplicandStart').val(), 10);
+            const multiplicandEnd = parseInt($('#multiplicandEnd').val(), 10);
+            
+            // Call function to generate table
+            generateTable(multiplierStart, multiplierEnd, multiplicandStart, multiplicandEnd);
+        },
+        errorClass: 'error',
+        errorElement: 'label',
+        errorPlacement: function(error, element) {
+            error.insertBefore(element);
+        },
+        highlight: function(element, errorClass) {
+            $(element).addClass(errorClass);
+        }
+    });
 // Function to generate multiplication table
 function generateTable(mStart, mEnd, pStart, pEnd) {
   const tableContainer = document.getElementById('tableOutput');
@@ -109,10 +113,6 @@ function generateTable(mStart, mEnd, pStart, pEnd) {
     }
   }
 
-  // Appending table to the container
-  tableContainer.appendChild(table);
-  table.setAttribute('id', 'multTable'); // Assign an ID to your table
-  highlightOperands();
 }
 
 // Function to highlight operands and their product in the table
@@ -174,3 +174,4 @@ function highlightOperands() {
         resultElement.value = ''; // Clear the result in case of invalid input
     }
 }
+});
